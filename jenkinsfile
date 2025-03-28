@@ -1,0 +1,19 @@
+pipeline{
+    agent any{
+        tools{
+            maven 'maven'
+        }
+        stages{
+            stage('built'){
+                steps{
+                    bat 'mvn clean package'
+                }
+            }
+            stage('test'){
+                steps{
+                    bat 'mvn test'
+                }
+            }
+        }
+    }
+}
